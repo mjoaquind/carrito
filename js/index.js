@@ -58,8 +58,8 @@ const formatoFecha = () => {
     const yyyy = today.getFullYear();
     let mm = today.getMonth() + 1; // Months start at 0!
     let dd = today.getDate();
-    if (dd < 10) dd = '0' + dd;
-    if (mm < 10) mm = '0' + mm;
+    dd < 10 ?? (dd = '0' + dd);
+    mm < 10 ?? (mm = '0' + mm);
     const formattedToday = dd + '/' + mm + '/' + yyyy;
     
     return formattedToday
@@ -69,9 +69,7 @@ const formatoFecha = () => {
 const filtrarPorTipo = (tipo)  => {
     let textoMenu = `Listado filtrado por ${tipo}\n`;
     productos.forEach(elemento => {
-        if (elemento.tipo == tipo) {
-            textoMenu += `${elemento.id} - ${elemento.tipo} ${elemento.marca} ${elemento.nombre} $${elemento.precio}\n`;
-        }
+        elemento.tipo === tipo && (textoMenu += `${elemento.id} - ${elemento.tipo} ${elemento.marca} ${elemento.nombre} $${elemento.precio}\n`);
     })
     const opcion = parseInt(prompt(textoMenu));
     const productoSeleccionado = productos.find(elemento => elemento.id === opcion)
@@ -110,16 +108,15 @@ const verCarrito = () => {
     textoCarrito += `TOTAL                    $${total}\n`;
     textoCarrito += '1 - Realizar compra\n';
     const respuesta = parseInt(prompt(textoCarrito));
-    if(respuesta == 1) {
+    if(respuesta === 1) {
         historial.push({
             numero: numeroCompra,
             fecha: formatoFecha(),
             total: total,
-        })
+        });
         alert(`Compra N°:${numeroCompra} fue realizada con éxito.`);
         carrito.splice(0,carrito.length);
     }
-    console.log(historial);
 }
 
 const verHistorial = () => {
