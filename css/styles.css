@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@200&display=swap");
 /* para que ocupe siempre el 100% del height */
 html, body {
   height: 100%;
@@ -101,7 +101,7 @@ body main {
 }
 h1, h2, h3, h4, h5, h6 {
   color: #0E0E52;
-  font-family: "Courgette", cursive;
+  font-family: "Exo", sans-serif;
   padding: 10px;
 }
 
