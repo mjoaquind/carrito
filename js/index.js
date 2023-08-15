@@ -41,6 +41,7 @@ productos.forEach(producto => {
             carrito.push(producto);
         }
         localStorage.setItem("carrito", JSON.stringify(carrito));
+        alert(`El producto ${producto.tipo} ${producto.nombre} ${producto.marca} aregado al carrito.`);
     });
 
     const agregarBoton = document.querySelector("#card-body-"+producto.id);

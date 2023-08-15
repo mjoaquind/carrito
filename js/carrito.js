@@ -38,6 +38,7 @@ carrito.forEach(elemento => {
     btnQuitar.addEventListener("click", () => {
         eliminarElemento(elemento)
         localStorage.setItem("carrito", JSON.stringify(carrito));
+        alert(`El producto ${elemento.tipo} ${elemento.nombre} ${elemento.marca} quitado del carrito.`);
     });
 
     const agregarBoton = document.querySelector("#tr-item-"+elemento.id);
