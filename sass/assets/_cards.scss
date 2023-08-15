@@ -1,0 +1,18 @@
+@use './header';
+
+.card {
+    border-radius: 50px 0px;
+    @extend .box-shadow;
+    text-align: center;
+    img {
+        border-radius: 50px 0px 0px 0px;
+    }
+    &:hover {
+        transition: border-radius 1s;
+        border-radius: 0px 50px;
+        img {
+            transition: border-radius 1s;
+            border-radius: 0px 50px 0px 0px;
+        }
+    }
+}

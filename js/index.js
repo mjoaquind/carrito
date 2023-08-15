@@ -1,57 +1,52 @@
-const productos = [
-    {
-        id: 1,
-        nombre: 'Ryzen 7 5700g',
-        marca: 'AMD',
-        tipo: 'Procesador',
-        precio: 170000
-    },
-    {
-        id: 2,
-        nombre: 'Ryzen 3 3200g',
-        marca: 'AMD',
-        tipo: 'Procesador',
-        precio: 92000
-    },
-    {
-        id: 3,
-        nombre: 'Core I7 11700',
-        marca: 'Intel',
-        tipo: 'Procesador',
-        precio: 291000
-    },
-    {
-        id: 4,
-        nombre: 'B550M DS3H',
-        marca: 'Gigabyte',
-        tipo: 'Motherboard',
-        precio: 92000
-    },
-    {
-        id: 5,
-        nombre: 'A520M K V2',
-        marca: 'Gigabyte',
-        tipo: 'Motherboard',
-        precio: 60590
-    },
-    {
-        id: 6,
-        nombre: '8GB 3200Mhz DDR4',
-        marca: 'Kingston',
-        tipo: 'Memoria',
-        precio: 15590
-    },
-    {
-        id: 7,
-        nombre: '8GB 2666Mhz DDR4',
-        marca: 'Crucial',
-        tipo: 'Memoria',
-        precio: 15590
-    }
-]
+import productos from './data.js'
 
 const carrito = [];
 const historial = [];
+
+const card = document.querySelector("#card-container");
+
+productos.forEach(producto => {
+    const div = document.createElement("div");
+    div.classList.add("col-lg-4","col-md-6","mb-3");
+    div.innerHTML = `
+        <div class="card">
+            <img src="${producto.img}" class="card-img-top" alt="imagen propiedad">
+            <div class="card-body" id="card-body-${producto.id}">
+                <h4 class="card-title">${producto.tipo} ${producto.nombre} ${producto.marca}</h4>
+                <p class="card-text">Precio: $${producto.precio}.</p>
+            </div>
+        </div>
+    `
+
+    card.appendChild(div);
+
+    const btnAgregar = document.createElement("button");
+    btnAgregar.classList.add("btn-blue");
+    btnAgregar.innerText = "Agregar";
+
+    btnAgregar.addEventListener("click", () => {
+        carrito.push(producto);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+    });
+
+    
+
+    const agregarBoton = document.querySelector("#card-body-"+producto.id);
+    agregarBoton.appendChild(btnAgregar);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const formatoFecha = () => {
     const today = new Date();
@@ -65,7 +60,6 @@ const formatoFecha = () => {
     return formattedToday
 }
 
-
 const filtrarPorTipo = (tipo)  => {
     let textoMenu = `Listado filtrado por ${tipo}\n`;
     productos.forEach(elemento => {
@@ -75,27 +69,6 @@ const filtrarPorTipo = (tipo)  => {
     const productoSeleccionado = productos.find(elemento => elemento.id === opcion)
     carrito.push(productoSeleccionado)
     alert(`${productoSeleccionado.tipo} ${productoSeleccionado.marca} ${productoSeleccionado.nombre} agregado al carrito.`);
-}
-
-const listarProductos = () => {
-    let opcion = parseInt(prompt('Elige una opción: \n 1 - Procesadores \n 2 - Motherborads \n 3 - Memorias \n 4 - Volver'));
-    while (opcion != 4) {
-        switch (opcion) {
-            case 1:
-                filtrarPorTipo('Procesador');
-                break;
-            case 2:
-                filtrarPorTipo('Motherboard');
-                break;
-            case 3:
-                filtrarPorTipo('Memoria');
-                break;
-            default:
-                alert('Opción no válida.');
-                break;
-        }
-        opcion = parseInt(prompt('Elige una opción: \n 1 - Procesadores \n 2 - Motherborads \n 3 - Memorias \n 4 - Volver'));
-    }
 }
 
 const verCarrito = () => {
@@ -125,23 +98,4 @@ const verHistorial = () => {
         textoHistorial += `Compra N° ${elemento.numero} - Fecha: ${elemento.fecha} - Total $${elemento.total}\n`;
     })
     alert(textoHistorial);
-}
-
-let opcion = parseInt(prompt('Elige una opción: \n 1 - Ver Productos \n 2 - Ver Carrito \n 3 - Historial \n 4 - Salir '));
-while(opcion != 4){
-    switch(opcion) {
-        case 1: 
-            listarProductos();
-            break;
-        case 2: 
-            verCarrito();
-            break;
-        case 3: 
-            verHistorial();
-            break;
-        default:
-            alert('Opción no válida.');
-            break;
-    }
-    opcion = parseInt(prompt('Elige una opción: \n 1 - Ver Productos \n 2 - Ver Carrito \n 3 - Historial \n 4 - Salir'));
 }

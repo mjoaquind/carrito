@@ -1,0 +1,18 @@
+@use './var';
+
+/* para que no quede oculto el h1 por el mavbar fixed top */
+header {
+    margin-top: 70px;
+}
+
+.box-shadow {
+    -webkit-box-shadow: 0px 4px 6px 0px var.$grisClaro;
+    -moz-box-shadow: 0px 4px 6px 0px var.$grisClaro;
+    box-shadow: 0px 4px 6px 0px var.$grisClaro;
+}
+
+.navbar {
+    background-color: var.$celesteClaro;
+    border-bottom: 1px solid gray;
+    @extend .box-shadow;
+}

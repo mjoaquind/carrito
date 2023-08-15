@@ -1,0 +1,20 @@
+@use './var';
+
+.form-control {
+    border: none;
+    border-radius: 0px;
+    border-bottom: 2px solid var.$celesteClaro;
+    &:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        animation-name: width_effect;
+        animation-iteration-count: initial;
+        animation-timing-function: ease-in;
+        animation-duration: 1s;
+    }
+}
+
+@keyframes width_effect {
+    0%{ width: 70%; }
+    100%{ width: 100%; }
+}

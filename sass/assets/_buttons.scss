@@ -1,0 +1,36 @@
+@use './var';
+@use './animations';
+
+.btn-blue {
+    color: white;
+    align-items: center;
+    background-image: radial-gradient(100% 100% at 100% 0, var.$celesteClaro 0, var.$celesteOscuro 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: #2d234266 0 2px 4px,#2d23424d 0 7px 13px -3px,#3a416f80 0 -3px 0 inset;
+    box-sizing: border-box;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    &:focus {
+        box-shadow: var.$celesteClaro 0 0 0 1.5px inset, #2d234266 0 2px 4px, #2d23424d 0 7px 13px -3px, var.$celesteClaro 0 -3px 0 inset;
+    }
+    &:hover {
+        box-shadow: #2d234266 0 4px 8px, #2d23424d 0 7px 13px -3px, var.$azulOscuro 0 -3px 0 inset;
+        @extend .animationPulseHeartbeat;
+    }
+    &:active {
+        box-shadow: var.$celesteClaro 0 3px 7px inset;
+        transform: translateY(2px);
+    }
+}

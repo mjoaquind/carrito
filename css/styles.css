@@ -1,0 +1,233 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+/* para que ocupe siempre el 100% del height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+body main {
+  flex: 1;
+}
+
+/* acá me rompí la cabeza pero esto es magia!!! */
+.slideRight {
+  animation: slideRight 2s ease 0s 1 normal forwards;
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.slideLeft {
+  animation: slideLeft 2s ease 0s 1 normal forwards;
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.slideBottom {
+  animation: slideBottom 2s ease 0s 1 normal forwards;
+}
+
+@keyframes slideBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fadeForward {
+  animation: fadeForward 1s ease 0s 1 normal forwards;
+}
+
+@keyframes fadeForward {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animationPulseHeartbeat, .btn-blue:hover {
+  animation: pulseHeartbeat 1s ease 0s 1 normal forwards;
+}
+
+@keyframes pulseHeartbeat {
+  0% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+    transform-origin: center center;
+  }
+  10% {
+    animation-timing-function: ease-in;
+    transform: scale(0.91);
+  }
+  17% {
+    animation-timing-function: ease-out;
+    transform: scale(0.98);
+  }
+  33% {
+    animation-timing-function: ease-in;
+    transform: scale(0.87);
+  }
+  45% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #0E0E52;
+  font-family: "Courgette", cursive;
+  padding: 10px;
+}
+
+/* para que no quede oculto el h1 por el mavbar fixed top */
+header {
+  margin-top: 70px;
+}
+
+.box-shadow, .card, .navbar {
+  -webkit-box-shadow: 0px 4px 6px 0px #cfcfcf;
+  -moz-box-shadow: 0px 4px 6px 0px #cfcfcf;
+  box-shadow: 0px 4px 6px 0px #cfcfcf;
+}
+
+.navbar {
+  background-color: #78C0E0;
+  border-bottom: 1px solid gray;
+}
+
+footer {
+  background-color: #449DD1;
+}
+
+@media (max-width: 991px) {
+  .alquileresIndex article, .ventasIndex article {
+    text-align: center;
+  }
+}
+@media (min-width: 992px) {
+  .alquileresIndex article {
+    text-align: right;
+  }
+  .ventasIndex article {
+    text-align: left;
+  }
+}
+.btn-blue {
+  color: white;
+  align-items: center;
+  background-image: radial-gradient(100% 100% at 100% 0, #78C0E0 0, #449DD1 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3019607843) 0 7px 13px -3px, rgba(58, 65, 111, 0.5019607843) 0 -3px 0 inset;
+  box-sizing: border-box;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+.btn-blue:focus {
+  box-shadow: #78C0E0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3019607843) 0 7px 13px -3px, #78C0E0 0 -3px 0 inset;
+}
+.btn-blue:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3019607843) 0 7px 13px -3px, #0E0E52 0 -3px 0 inset;
+}
+.btn-blue:active {
+  box-shadow: #78C0E0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.card {
+  border-radius: 50px 0px;
+  text-align: center;
+}
+.card img {
+  border-radius: 50px 0px 0px 0px;
+}
+.card:hover {
+  transition: border-radius 1s;
+  border-radius: 0px 50px;
+}
+.card:hover img {
+  transition: border-radius 1s;
+  border-radius: 0px 50px 0px 0px;
+}
+
+.serviciosIndex {
+  text-align: center;
+}
+
+.nosotros {
+  text-align: justify;
+}
+.nosotros a {
+  text-align: center;
+}
+
+.difuminada {
+  filter: blur(1.5px) brightness(0.88);
+  border-radius: 10px;
+}
+
+.form-control {
+  border: none;
+  border-radius: 0px;
+  border-bottom: 2px solid #78C0E0;
+}
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  animation-name: width_effect;
+  animation-iteration-count: initial;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+}
+
+@keyframes width_effect {
+  0% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */

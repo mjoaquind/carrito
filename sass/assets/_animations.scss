@@ -1,0 +1,58 @@
+/* acá me rompí la cabeza pero esto es magia!!! */
+@mixin animation($name, $transform, $duration, $value1, $value2) {
+	.#{$name} {
+		animation: #{$name} #{$duration} ease 0s 1 normal forwards;
+	}
+
+	@keyframes #{$name} {
+		0% {
+			opacity: 0;
+			transform: #{$transform}($value1);
+		}
+	
+		100% {
+			opacity: 1;
+			transform: #{$transform}($value2);
+		}
+	}
+}
+
+@include animation(slideRight, translateX, 2s, 250px, 0);
+
+@include animation(slideLeft, translateX, 2s, -250px, 0);
+
+@include animation(slideBottom, translateY, 2s, 250px, 0);
+
+@include animation(fadeForward, scale, 1s, 0.6, 1);
+
+.animationPulseHeartbeat {
+    animation: pulseHeartbeat 1s ease 0s 1 normal forwards;
+}
+
+@keyframes pulseHeartbeat {
+	0% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+		transform-origin: center center;
+	}
+
+	10% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	17% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	33% {
+		animation-timing-function: ease-in;
+		transform: scale(0.87);
+	}
+
+	45% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+	}
+}
