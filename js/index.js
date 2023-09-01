@@ -1,7 +1,7 @@
 import Carrito from "./class/Carrito.js";
 import Producto from "./class/Producto.js";
 
-const url = "../../data/producto.json";
+const url = "../data/producto.json";
 
 const carrito = new Carrito();
 
