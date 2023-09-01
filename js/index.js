@@ -10,7 +10,7 @@ const card = document.querySelector("#card-container");
 async function cargarProductos() {
     try {
         const response = await fetch(url);
-        const data = await response.json();
+        const data = await JSON.stringify(response.json());
         
         const productos = data.map(item => {
             return new Producto(item.id, item.img, item.nombre, item.marca, item.tipo, item.precio);
