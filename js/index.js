@@ -8,8 +8,8 @@ const carrito = new Carrito();
 const card = document.querySelector("#card-container");
 
 async function cargarProductos() {
-    const response = await fetch(url);
-    const data = await response.json();
+    const respuesta = await fetch(url);
+    const data = await respuesta.json();
     
     const productos = data.map(item => {
         return new Producto(item.id, item.img, item.nombre, item.marca, item.tipo, item.precio);
@@ -51,4 +51,4 @@ async function cargarProductos() {
     });
 }
 
-await (cargarProductos())();
+cargarProductos();
