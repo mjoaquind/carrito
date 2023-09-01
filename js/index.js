@@ -52,4 +52,4 @@ async function cargarProductos() {
 
 }
 
-await cargarProductos();
+cargarProductos();
