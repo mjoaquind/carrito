@@ -49,7 +49,6 @@ async function cargarProductos() {
         const agregarBoton = document.querySelector("#card-body-"+producto.id);
         agregarBoton.appendChild(btnAgregar);
     });
-
 }
 
-cargarProductos();
+await (cargarProductos())();
