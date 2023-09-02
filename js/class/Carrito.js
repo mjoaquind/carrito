@@ -47,6 +47,24 @@ class Carrito {
             
         }
     }
+
+    async vaciarCarrito() {
+        const { isConfirmed } = await Swal.fire({
+            title: 'Cancelar Compra',
+            text: '¿Está seguro que desea cancelar la compra?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si',
+            cancelButtonText: 'Cancelar',
+        });
+        if (isConfirmed) {
+            this.items = [];
+            this.guardarLocalStorage();
+            location.reload();
+        }
+    }
 }
 
 export default Carrito;
